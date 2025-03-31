@@ -30,3 +30,7 @@ module "nat_gateway" {
 module "ecs_cluster" {
   source = "./modules/ecs"
 }
+
+module "ecs_task_definition" {
+  source = "./modules/ecs-task-definition"
+}
