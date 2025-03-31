@@ -9,12 +9,12 @@ Steps to clone the repository, build the docker image and push it to your own do
   2. Change into the **app** folder and run the below command to build the docker image.
      
      ```
-     docker build -t simple-time-service:$(date +"%Y%m%d%H%M%S") -f Dockerfile .
+     docker build -t simple-time-service:latest -f Dockerfile .
      ```
   3. Below output is the expected one which is shown when to image is being built
 
      ```
-     root@ip-172-31-45-157:~/devops-challenge/app# docker build -t simple-time-service:$(date +"%Y%m%d%H%M%S") -f Dockerfile .
+     root@ip-172-31-45-157:~/devops-challenge/app# docker build -t simple-time-service:latest -f Dockerfile .
      [+] Building 12.1s (9/9) FINISHED                                                                                                                                                          docker:default
      => [internal] load build definition from Dockerfile                                                                                                                                                 0.0s
      => => transferring dockerfile: 379B                                                                                                                                                                 0.0s
@@ -42,14 +42,14 @@ Steps to clone the repository, build the docker image and push it to your own do
      => exporting to image                                                                                                                                                                               0.2s 
      => => exporting layers                                                                                                                                                                              0.2s 
      => => writing image sha256:4554e3ebf15a0889a6b221c56f3289891060d6048e485958795ae0da18b3064b                                                                                                         0.0s 
-     => => naming to docker.io/library/simple-time-service:20250331094013
+     => => naming to docker.io/library/simple-time-service:latest
      ```
   4. Run the command `docker images` to check the list of images. Below expected output
 
      ```
      root@ip-172-31-45-157:~/devops-challenge/app# docker images                                                                                                                                               
      REPOSITORY            TAG              IMAGE ID       CREATED         SIZE                                                                                                                                
-     simple-time-service   20250331094013   4554e3ebf15a   5 seconds ago   137MB
+     simple-time-service   latest           4554e3ebf15a   5 seconds ago   137MB
      ```
   5. Login to Docker hub by running below command.
 
