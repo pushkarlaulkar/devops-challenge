@@ -80,3 +80,18 @@ Steps to clone the repository, build the docker image and push it to your own do
 
      Login Succeeded
      ```
+  8. Tag the existing image so that you can push it your docker hub account and then run the push command as below
+
+     ```
+     root@ip-172-31-45-157:~/devops-challenge/app# docker tag simple-time-service:latest plaulkar/simple-time-service:latest 
+     root@ip-172-31-45-157:~/devops-challenge/app# docker push plaulkar/simple-time-service:latest 
+     The push refers to repository [docker.io/plaulkar/simple-time-service]
+     4e1ba706109f: Pushed 
+     f669342c6c2e: Pushed 
+     e3c83921c44d: Pushed 
+     9ae9750f0b5d: Mounted from library/python 
+     a38884fb0360: Mounted from library/python 
+     3629edeced43: Mounted from library/python 
+     1287fbecdfcc: Mounted from library/python 
+     latest: digest: sha256:0749d6a1440b58d19dd8edb44f9c18796c7b0693934ec146a1d511af6d274279 size: 1783
+     ```
