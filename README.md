@@ -1,12 +1,12 @@
 This is a simple Flask app to expose an API at the default root path '/'.
 
 Steps to clone the repository, build the docker image and push it to your own docker hub account
-  1. Clone the repo
+  1. Clone the repo.
      
      ```
      git clone https://github.com/pushkarlaulkar/devops-challenge.git
      ```
-  2. Go into the **app** folder and run the below command to build the docker image
+  2. Change into the **app** folder and run the below command to build the docker image.
      
      ```
      docker build -t simple-time-service:$(date +"%Y%m%d%H%M%S") -f Dockerfile .
@@ -50,4 +50,33 @@ Steps to clone the repository, build the docker image and push it to your own do
      root@ip-172-31-45-157:~/devops-challenge/app# docker images                                                                                                                                               
      REPOSITORY            TAG              IMAGE ID       CREATED         SIZE                                                                                                                                
      simple-time-service   20250331094013   4554e3ebf15a   5 seconds ago   137MB
+     ```
+  5. Login to Docker hub by running below command.
+
+     ```
+     docker login
+     ```
+  6. You will be presented with below output
+
+     ```
+     root@ip-172-31-45-157:~/devops-challenge# docker login
+
+     USING WEB-BASED LOGIN
+      
+     i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+               
+      
+     Your one-time device confirmation code is: ABCD-EFGH
+     Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+      
+     Waiting for authentication in the browser…
+     ```
+  7. Perform the authentication with your docker hub credentials and you will be ready to push images. Below is the expected output
+
+     ```
+     WARNING! Your credentials are stored unencrypted in '/root/.docker/config.json'.
+     Configure a credential helper to remove this warning. See
+     https://docs.docker.com/go/credential-store/
+
+     Login Succeeded
      ```
