@@ -91,3 +91,18 @@ resource "aws_route_table_association" "sts-private-subnet-asso" {
   subnet_id      = aws_subnet.sts-private-subnet[count.index].id
   route_table_id = aws_route_table.sts-private-rt.id
 }
+
+#Allowing all traffic on port 80 within VPC
+resource "aws_security_group" "sts-ecs-task-sg" {
+  name        = "Allow Port 80 within VPC"
+  description = "Allow Port 80 within VPC"
+  vpc_id = aws_vpc.sts-vpc.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.sts-vpc.cidr_block]
+    description = "Allow Port 80 within VPC"
+  }
+}
