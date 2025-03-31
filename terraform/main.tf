@@ -26,3 +26,7 @@ module "nat_gateway" {
   subnet_id              = random_shuffle.random_public_subnet.result[0]
   private_route_table_id = module.sts-vpc.private_route_table_id
 }
+
+module "ecs_cluster" {
+  source = "./modules/ecs"
+}
