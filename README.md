@@ -1,0 +1,53 @@
+This is a simple Flask app to expose an API at the default root path '/'.
+
+Steps to clone the repository, build the docker image and push it to your own docker hub account
+  1. Clone the repo
+     
+     ```
+     git clone https://github.com/pushkarlaulkar/devops-challenge.git
+     ```
+  2. Go into the **app** folder and run the below command to build the docker image
+     
+     ```
+     docker build -t simple-time-service:$(date +"%Y%m%d%H%M%S") -f Dockerfile .
+     ```
+  3. Below output is the expected one which is shown when to image is being built
+
+     ```
+     root@ip-172-31-45-157:~/devops-challenge/app# docker build -t simple-time-service:$(date +"%Y%m%d%H%M%S") -f Dockerfile .
+     [+] Building 12.1s (9/9) FINISHED                                                                                                                                                          docker:default
+     => [internal] load build definition from Dockerfile                                                                                                                                                 0.0s
+     => => transferring dockerfile: 379B                                                                                                                                                                 0.0s
+     => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                                                                  0.6s
+     => [internal] load .dockerignore                                                                                                                                                                    0.0s
+     => => transferring context: 2B                                                                                                                                                                      0.0s
+     => [1/4] FROM docker.io/library/python:3.12-slim@sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f                                                                            5.2s
+     => => resolve docker.io/library/python:3.12-slim@sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f                                                                            0.0s
+     => => sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f 9.12kB / 9.12kB                                                                                                       0.0s
+     => => sha256:5ada6d11077457411f44a0b126462d1334942b03945ac1686aed5e2c16931380 1.75kB / 1.75kB                                                                                                       0.0s
+     => => sha256:73bcaeb9132b14bb09076fefd88ed9169c27c9bdc0a0111dd5348af5e98e3a3a 5.50kB / 5.50kB                                                                                                       0.0s
+     => => sha256:6e909acdb790c5a1989d9cfc795fda5a246ad6664bb27b5c688e2b734b2c5fad 28.20MB / 28.20MB                                                                                                     1.8s
+     => => sha256:0b564fcd72a23e125aa17f344431b8e2189a5b8f89e78953466669795e7f8089 3.51MB / 3.51MB                                                                                                       0.9s
+     => => sha256:e4eb3ff0477a6c3c65761bad0d2aa2c1ce912cdcf883a37226f28e6e277126b6 13.65MB / 13.65MB                                                                                                     1.7s
+     => => sha256:75c77ac11059535a2a5409b794c1bec09cac945ffe1dfd92215c68f2ed2d35d4 249B / 249B                                                                                                           1.2s
+     => => extracting sha256:6e909acdb790c5a1989d9cfc795fda5a246ad6664bb27b5c688e2b734b2c5fad                                                                                                            1.8s
+     => => extracting sha256:0b564fcd72a23e125aa17f344431b8e2189a5b8f89e78953466669795e7f8089                                                                                                            0.2s
+     => => extracting sha256:e4eb3ff0477a6c3c65761bad0d2aa2c1ce912cdcf883a37226f28e6e277126b6                                                                                                            0.8s
+     => => extracting sha256:75c77ac11059535a2a5409b794c1bec09cac945ffe1dfd92215c68f2ed2d35d4                                                                                                            0.0s
+     => [internal] load build context                                                                                                                                                                    0.0s
+     => => transferring context: 651B                                                                                                                                                                    0.0s
+     => [2/4] WORKDIR /app                                                                                                                                                                               0.1s
+     => [3/4] COPY server.py requirements.txt ./                                                                                                                                                         0.1s
+     => [4/4] RUN pip3 install --no-cache-dir -r requirements.txt                                                                                                                                        5.7s
+     => exporting to image                                                                                                                                                                               0.2s 
+     => => exporting layers                                                                                                                                                                              0.2s 
+     => => writing image sha256:4554e3ebf15a0889a6b221c56f3289891060d6048e485958795ae0da18b3064b                                                                                                         0.0s 
+     => => naming to docker.io/library/simple-time-service:20250331094013
+     ```
+  4. Run the command `docker images` to check the list of images. Below expected output
+
+     ```
+     root@ip-172-31-45-157:~/devops-challenge/app# docker images                                                                                                                                               
+     REPOSITORY            TAG              IMAGE ID       CREATED         SIZE                                                                                                                                
+     simple-time-service   20250331094013   4554e3ebf15a   5 seconds ago   137MB
+     ```
