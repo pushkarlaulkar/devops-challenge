@@ -34,3 +34,11 @@ module "ecs_cluster" {
 module "ecs_task_definition" {
   source = "./modules/ecs-task-definition"
 }
+
+module "ecs_run_task" {
+  source            = "./modules/ecs-task"
+  ecs_cluster_id    = module.ecs_cluster.cluster_id
+  ecs_task_arn      = module.ecs_task_definition.ecs_task_definition_arn
+  security_group_id = module.sts-vpc.ecs_task_sg
+  private_subnets   = module.sts-vpc.private_subnets[*].id
+}
