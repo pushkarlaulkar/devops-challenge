@@ -17,3 +17,7 @@ variable "private_subnets" {
   description = "List of private subnet IDs"
   type        = list(string)
 }
+
+variable "sts_target_group" {
+  type = string
+}
