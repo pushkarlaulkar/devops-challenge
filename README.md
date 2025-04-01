@@ -109,8 +109,8 @@ Steps to clone the repository, build the docker image and push it to your own do
   
     1. A VPC with 2 Public & 2 Private subnets.
     2. A NAT Gateway deployed in one of the public subnet, an EIP associated with the NAT Gateway.
-    3. An ECS cluster, task definition & a service which deploys a task into a private subnet.
-    4. An ALB deployed in the public subnets, a target group of type IP which corresponds to the task.
+    3. An ECS cluster, task definition & a service which deploys a task into a private subnet. A security group associated with the ECS task which only allows port 80 within VPC.
+    4. An ALB deployed in the public subnets, a target group of type IP which corresponds to the task. A security group associated with the ALB to allow port 80 on all IP's.
 
   Instructions to deploy the infrastructure
 
