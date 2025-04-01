@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "me-central-1"
+  region = var.region
 }
 
 # Module for creating a VPC with 2 Public & 2 Private subnets
@@ -36,6 +36,7 @@ module "nat_gateway" {
 
 module "ecs_cluster" {
   source = "./modules/ecs"
+  ecs_cluster_name = var.ecs_cluster_name
 }
 
 # Module for creating an ECS Task definition
