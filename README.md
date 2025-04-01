@@ -131,3 +131,11 @@ Steps to clone the repository, build the docker image and push it to your own do
   Terraform will output the ALB DNS which can be put in the browser to access the application.
   
   Note :- The ALB DNS might take a couple of minutes to be accessible.
+
+-----------------------------
+
+**CI/CD**
+
+  Below github actions workflow has been put in place, so that whenever a change is made to the code the workflow runs and builds a new image and uploads it to Docker hub.
+
+  To login to Docker hub, 2 secrets ( DOCKERHUB_USERNAME, DOCKERHUB_PASSWORD ) have been created in the Settings of the repo
