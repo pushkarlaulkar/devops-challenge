@@ -106,6 +106,7 @@ Steps to clone the repository, build the docker image and push it to your own do
 **Terraform**
 
   Below is the infrastructure deployed by terraform
+  
     1. A VPC with 2 Public & 2 Private subnets.
     2. A NAT Gateway deployed in one of the public subnet, an EIP associated with the NAT Gateway.
     3. An ECS cluster, task definition & a service which deploys a task into a private subnet.
