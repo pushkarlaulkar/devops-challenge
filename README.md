@@ -95,3 +95,8 @@ Steps to clone the repository, build the docker image and push it to your own do
      1287fbecdfcc: Mounted from library/python 
      latest: digest: sha256:0749d6a1440b58d19dd8edb44f9c18796c7b0693934ec146a1d511af6d274279 size: 1783
      ```
+  9. Create a container of this docker image by running below command
+      
+     ```
+     docker run -d --name simple-test-service -p 80:80 plaulkar/simple-time-service:latest
+     ```
