@@ -13,3 +13,11 @@ output "private_route_table_id" {
 output "ecs_task_sg" {
   value = aws_security_group.sts-ecs-task-sg.id
 }
+
+output "security_group_id" {
+  value = aws_security_group.sts-ecs-task-sg.id
+}
+
+output "vpc_id" {
+  value = aws_vpc.sts-vpc.id
+}
