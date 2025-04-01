@@ -112,6 +112,10 @@ Steps to clone the repository, build the docker image and push it to your own do
     3. An ECS cluster, task definition & a service which deploys a task into a private subnet. A security group associated with the ECS task which only allows port 80 within VPC.
     4. An ALB deployed in the public subnets, a target group of type IP which corresponds to the task. A security group associated with the ALB to allow port 80 on all IP's.
 
+  Before terraform infrastructure can be created, AWS API credentials are needed. Run `aws configure` and provide the access key & secret access key.
+
+  It is recommended to create an api key with full admin privileges.
+
   Instructions to deploy the infrastructure
 
     1. cd terraform
