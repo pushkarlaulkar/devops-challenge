@@ -119,4 +119,5 @@ Steps to clone the repository, build the docker image and push it to your own do
     3. terraform apply
 
   Terraform will output the ALB DNS which can be put in the browser to access the application.
+  
   Note :- The ALB DNS might take a couple of minutes to be accessible.
