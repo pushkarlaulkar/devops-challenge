@@ -111,3 +111,12 @@ Steps to clone the repository, build the docker image and push it to your own do
     2. A NAT Gateway deployed in one of the public subnet, an EIP associated with the NAT Gateway.
     3. An ECS cluster, task definition & a service which deploys a task into a private subnet.
     4. An ALB deployed in the public subnets, a target group of type IP which corresponds to the task.
+
+  Instructions to deploy the infrastructure
+
+    1. cd terraform
+    2. terraform plan
+    3. terraform apply
+
+  Terraform will output the ALB DNS which can be put in the browser to access the application.
+  Note :- The ALB DNS might take a couple of minutes to be accessible.
