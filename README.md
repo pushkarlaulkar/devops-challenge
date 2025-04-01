@@ -115,8 +115,9 @@ Steps to clone the repository, build the docker image and push it to your own do
   Instructions to deploy the infrastructure
 
     1. cd terraform
-    2. terraform plan
-    3. terraform apply
+    2. terraform init
+    3. terraform plan
+    4. terraform apply
 
   Terraform will output the ALB DNS which can be put in the browser to access the application.
   
