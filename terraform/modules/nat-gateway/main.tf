@@ -1,3 +1,5 @@
+# Creating an EIP to be associated with the NAT GW
+
 resource "aws_eip" "sts-eip" {
   domain = "vpc"
 
@@ -5,6 +7,8 @@ resource "aws_eip" "sts-eip" {
     Name = "sts-eip"
   }
 }
+
+# Creating a NAT GW
 
 resource "aws_nat_gateway" "sts-nat-gw" {
   allocation_id = aws_eip.sts-eip.id
@@ -16,7 +20,9 @@ resource "aws_nat_gateway" "sts-nat-gw" {
 
 }
 
-resource "aws_route" "nat" {
+# Adding a route in the private route table through the NAT GW
+
+resource "aws_route" "private_route_nat" {
   route_table_id         = var.private_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.sts-nat-gw.id
